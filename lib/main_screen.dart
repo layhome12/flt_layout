@@ -1,78 +1,34 @@
 import "package:flutter/material.dart";
-import 'package:layout_basic/detail_screen.dart';
+import 'package:layout_basic/done_place_list.dart';
 import 'package:layout_basic/models/tourism_model.dart';
+import 'package:layout_basic/tourism_list.dart';
 
-class MainScreen extends StatelessWidget {
+class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
 
+  @override
+  _MainScreenState createState() => _MainScreenState();
+}
+
+class _MainScreenState extends State<MainScreen> {
   // This widget is the root of your application.
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text("Tempat Wisata"),
-        ),
-        body: ListView.builder(
-          itemBuilder: (context, index) {
-            final TourismPlace place = tourismPlaceList[index];
-            return InkWell(
-              onTap: () {
+      appBar: AppBar(
+        title: const Text("Wisata Surabaya"),
+        actions: <Widget>[
+          IconButton(
+              onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return DetailScreen(place: place);
+                  return const DonePlaceList();
                 }));
               },
-              child: listItem(place),
-            );
-          },
-          itemCount: tourismPlaceList.length,
-        ));
-  }
-
-  Widget listItem(TourismPlace place) {
-    return Card(
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Expanded(
-            flex: 1,
-            child: Padding(
-              padding: const EdgeInsets.all(10),
-              child: Image.asset(place.imageAssets),
-            ),
-          ),
-          Expanded(
-            flex: 2,
-            child: Padding(
-              padding: const EdgeInsets.all(10),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  SizedBox(
-                    width: double.infinity,
-                    child: Text(
-                      place.name,
-                      style: const TextStyle(
-                          fontSize: 16, fontWeight: FontWeight.bold),
-                      textAlign: TextAlign.left,
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 0, top: 4),
-                    child: SizedBox(
-                      width: double.infinity,
-                      child: Text(
-                        place.location,
-                        textAlign: TextAlign.left,
-                      ),
-                    ),
-                  )
-                ],
-              ),
-            ),
-          )
+              icon: const Icon(Icons.done_outline))
         ],
       ),
+      body: TourismList(),
     );
   }
 }
