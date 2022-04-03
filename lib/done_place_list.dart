@@ -27,7 +27,7 @@ class DonePlaceList extends StatelessWidget {
                   flex: 1,
                   child: Padding(
                     padding: const EdgeInsets.all(10),
-                    child: Image.asset(place.wisataImg),
+                    child: Image.network(place.wisataImg),
                   ),
                 ),
                 Expanded(

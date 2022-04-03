@@ -20,7 +20,7 @@ class DetailScreen extends StatelessWidget {
               place.wisataNama,
               textAlign: TextAlign.center,
               style: const TextStyle(
-                  fontSize: 35, fontFamily: "Lobster", color: Colors.orange),
+                  fontSize: 35, fontFamily: "Lobster", color: Colors.black87),
             ),
           ),
           Container(
@@ -32,7 +32,7 @@ class DetailScreen extends StatelessWidget {
                   children: <Widget>[
                     const Icon(
                       Icons.calendar_today_outlined,
-                      color: Colors.deepPurpleAccent,
+                      color: Colors.grey,
                     ),
                     Text(
                       place.wisataHariBuka,
@@ -44,7 +44,7 @@ class DetailScreen extends StatelessWidget {
                   children: <Widget>[
                     const Icon(
                       Icons.access_time_outlined,
-                      color: Colors.deepOrange,
+                      color: Colors.grey,
                     ),
                     Text(
                       place.wisataJamKerja,
@@ -56,7 +56,7 @@ class DetailScreen extends StatelessWidget {
                   children: <Widget>[
                     const Icon(
                       Icons.attach_money,
-                      color: Colors.green,
+                      color: Colors.grey,
                     ),
                     Text(
                       'Rp. ' + place.wisataHargaHtm.toString(),
@@ -74,7 +74,7 @@ class DetailScreen extends StatelessWidget {
               style: const TextStyle(
                   fontSize: 13,
                   fontWeight: FontWeight.normal,
-                  color: Colors.grey,
+                  color: Colors.black87,
                   fontFamily: "Oxygen"),
               textAlign: TextAlign.center,
             ),
