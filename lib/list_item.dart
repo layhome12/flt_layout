@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:layout_basic/models/tourism_model.dart';
 
 class ListItem extends StatelessWidget {
-  final TourismPlace place;
+  final TourismDetail place;
   final bool isDone;
   final Function(bool? value) onCheckBoxClick;
 
@@ -24,7 +24,7 @@ class ListItem extends StatelessWidget {
             flex: 1,
             child: Padding(
               padding: const EdgeInsets.all(10),
-              child: Image.asset(place.imageAssets),
+              child: Image.network(place.wisataImg),
             ),
           ),
           Expanded(
@@ -38,7 +38,7 @@ class ListItem extends StatelessWidget {
                   SizedBox(
                     width: double.infinity,
                     child: Text(
-                      place.name,
+                      place.wisataNama,
                       style: const TextStyle(
                           fontSize: 16, fontWeight: FontWeight.bold),
                       textAlign: TextAlign.left,
@@ -49,7 +49,7 @@ class ListItem extends StatelessWidget {
                     child: SizedBox(
                       width: double.infinity,
                       child: Text(
-                        place.location,
+                        place.wisataLokasi,
                         textAlign: TextAlign.left,
                       ),
                     ),

@@ -2,11 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:layout_basic/models/tourism_model.dart';
 
 class DoneTourismProvider extends ChangeNotifier {
-  final List<TourismPlace> _doneTourismPlaceList = [];
+  final List<TourismDetail> _doneTourismPlaceList = [];
 
-  List<TourismPlace> get doneTourismPlaceList => _doneTourismPlaceList;
+  List<TourismDetail> get doneTourismPlaceList => _doneTourismPlaceList;
 
-  void complete(TourismPlace place, bool isDone) {
+  void complete(TourismDetail place, bool isDone) {
     isDone
         ? _doneTourismPlaceList.add(place)
         : _doneTourismPlaceList.remove(place);

@@ -8,7 +8,7 @@ class DonePlaceList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<TourismPlace> doneTourismPlaceList =
+    final List<TourismDetail> doneTourismPlaceList =
         Provider.of<DoneTourismProvider>(context, listen: false)
             .doneTourismPlaceList;
     return Scaffold(
@@ -17,7 +17,7 @@ class DonePlaceList extends StatelessWidget {
       ),
       body: ListView.builder(
         itemBuilder: (context, index) {
-          final TourismPlace place = doneTourismPlaceList[index];
+          final TourismDetail place = doneTourismPlaceList[index];
           return Card(
             color: Colors.white54,
             child: Row(
@@ -27,7 +27,7 @@ class DonePlaceList extends StatelessWidget {
                   flex: 1,
                   child: Padding(
                     padding: const EdgeInsets.all(10),
-                    child: Image.asset(place.imageAssets),
+                    child: Image.asset(place.wisataImg),
                   ),
                 ),
                 Expanded(
@@ -41,7 +41,7 @@ class DonePlaceList extends StatelessWidget {
                         SizedBox(
                           width: double.infinity,
                           child: Text(
-                            place.name,
+                            place.wisataNama,
                             style: const TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.bold),
                             textAlign: TextAlign.left,
@@ -52,7 +52,7 @@ class DonePlaceList extends StatelessWidget {
                           child: SizedBox(
                             width: double.infinity,
                             child: Text(
-                              place.location,
+                              place.wisataLokasi,
                               textAlign: TextAlign.left,
                             ),
                           ),

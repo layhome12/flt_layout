@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:layout_basic/models/tourism_model.dart';
 
 class DetailScreen extends StatelessWidget {
-  const DetailScreen({Key? key, required this.place}) : super(key: key);
+  final TourismDetail place;
 
-  final TourismPlace place;
+  const DetailScreen({Key? key, required this.place}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,13 +13,14 @@ class DetailScreen extends StatelessWidget {
           child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          Image.asset(place.imageAssets),
+          Image.network(place.wisataImg),
           Container(
             margin: const EdgeInsets.only(top: 16.0),
             child: Text(
-              place.name,
+              place.wisataNama,
               textAlign: TextAlign.center,
-              style: const TextStyle(fontSize: 35, fontFamily: "Lobster"),
+              style: const TextStyle(
+                  fontSize: 35, fontFamily: "Lobster", color: Colors.orange),
             ),
           ),
           Container(
@@ -29,28 +30,37 @@ class DetailScreen extends StatelessWidget {
               children: <Widget>[
                 Column(
                   children: <Widget>[
-                    const Icon(Icons.calendar_today_outlined),
+                    const Icon(
+                      Icons.calendar_today_outlined,
+                      color: Colors.deepPurpleAccent,
+                    ),
                     Text(
-                      place.hariBuka,
-                      style: const TextStyle(fontSize: 8),
+                      place.wisataHariBuka,
+                      style: const TextStyle(fontSize: 10),
                     )
                   ],
                 ),
                 Column(
                   children: <Widget>[
-                    const Icon(Icons.access_time_outlined),
+                    const Icon(
+                      Icons.access_time_outlined,
+                      color: Colors.deepOrange,
+                    ),
                     Text(
-                      place.jamBuka,
-                      style: const TextStyle(fontSize: 8),
+                      place.wisataJamKerja,
+                      style: const TextStyle(fontSize: 10),
                     )
                   ],
                 ),
                 Column(
                   children: <Widget>[
-                    const Icon(Icons.attach_money),
+                    const Icon(
+                      Icons.attach_money,
+                      color: Colors.green,
+                    ),
                     Text(
-                      place.hargaTiket,
-                      style: const TextStyle(fontSize: 8),
+                      'Rp. ' + place.wisataHargaHtm.toString(),
+                      style: const TextStyle(fontSize: 10),
                     )
                   ],
                 )
@@ -60,9 +70,9 @@ class DetailScreen extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(16),
             child: Text(
-              place.Deskripsi,
+              place.wisataDeskripsi,
               style: const TextStyle(
-                  fontSize: 10,
+                  fontSize: 13,
                   fontWeight: FontWeight.normal,
                   color: Colors.grey,
                   fontFamily: "Oxygen"),
@@ -77,12 +87,12 @@ class DetailScreen extends StatelessWidget {
                   padding: const EdgeInsets.all(4),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(15.0),
-                    child: Image.asset(place.galleryAssets[index]),
+                    child: Image.network(place.wisataListImg[index]),
                   ),
                 );
               },
               scrollDirection: Axis.horizontal,
-              itemCount: place.galleryAssets.length,
+              itemCount: place.wisataListImg.length,
             ),
           )
         ],
